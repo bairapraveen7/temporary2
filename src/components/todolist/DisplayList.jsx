@@ -1,10 +1,11 @@
 import React from "react";
+import { ListItem } from "./ListItem";
 
-export const DisplayList = ({state}) => {
+export const DisplayList = ({state, dispatch}) => {
     return (
         <React.Fragment>
             {state?.map((eachItem) => {
-                return <p>{eachItem.message}</p>
+                return <ListItem item={eachItem} dispatch={dispatch} />
             })}
         </React.Fragment>
     )

@@ -10,14 +10,17 @@ export const listReducer = (state,action) => {
             ]
         };
         case UPDATE_LIST_ITEM: {
-            return [
-                ...state,
-                action.payload
-            ]
+            console.log(action);
+            return state.map((eachListItem) => {
+                if(eachListItem.id == action.payload.id){
+                    return action.payload;
+                }
+                return eachListItem;
+            })
         };
         case DELETE_LIST_ITEM: {
 
-            return state.filter((eachItem) => eachItem.id!=action.id);
+            return state.filter((eachItem) => eachItem.id!=action.payload.id);
         }
     }
 }
